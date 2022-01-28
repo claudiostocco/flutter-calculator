@@ -23,34 +23,58 @@ class _HomePageState extends State<HomePage> {
     bool keyFunction = ButtomPressed.KEY_FUNCTION.contains(key);
     String displayed = clearVisor ? '' : visorDisplay;
     String keyPressed = '';
-    double tempResult = result;
 
     if (keyFunction) {
       keyPressed = key;
-    } else {
+    } else if (key == ButtomPressed.DEL) {
+      displayed = displayed.substring(0, displayed.length);
+    } else if (!clearVisor) {
       displayed = displayed + key;
     }
 
-    switch (key) {
-      case ButtomPressed.PLUS:
-        {
-          break;
-        }
-      case ButtomPressed.MINUS:
-        {
-          break;
-        }
-      default:
-        {}
-    }
-
     setState(() {
-      visorDisplay = displayed;
       if (displayed != '') currentValue = double.parse(displayed);
       if (keyFunction) {
+        if (keyFunctionPressed != '') {
+          switch (keyFunctionPressed) {
+            case ButtomPressed.PLUS:
+              {
+                result = result + currentValue;
+                break;
+              }
+            case ButtomPressed.MINUS:
+              {
+                result = result - currentValue;
+                break;
+              }
+            case ButtomPressed.MULT:
+              {
+                result = result * currentValue;
+                break;
+              }
+            case ButtomPressed.DIV:
+              {
+                result = result / currentValue;
+                break;
+              }
+            case ButtomPressed.PERC:
+              {
+                result = result / 100 * currentValue;
+                break;
+              }
+            default:
+          }
+          displayed = result.toString();
+        } else {
+          result = currentValue;
+        }
         keyFunctionPressed = keyPressed;
+      } else if (key == ButtomPressed.CLEAR) {
+        result = 0;
+        currentValue = 0;
+        keyFunctionPressed = '';
       }
-      result = tempResult;
+      visorDisplay = displayed;
     });
   }
 
