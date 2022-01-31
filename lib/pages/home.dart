@@ -17,6 +17,7 @@ class _HomePageState extends State<HomePage> {
   double currentValue = 0;
   String visorDisplay = '';
   String keyFunctionPressed = '';
+  bool Totalized = false;
 
   void _buttomPressed(String key) {
     bool clearVisor = ButtomPressed.CLEAR_BUTTONS.contains(key);
@@ -27,9 +28,13 @@ class _HomePageState extends State<HomePage> {
     if (keyFunction) {
       keyPressed = key;
     } else if (key == ButtomPressed.DEL) {
-      displayed = displayed.substring(0, displayed.length);
+      displayed = displayed.substring(0, displayed.length-1);
     } else if (!clearVisor) {
-      displayed = displayed + key;
+      if (Totalized) {
+        displayed = key;
+      } else {
+        displayed = displayed + key;
+      }
     }
 
     setState(() {
@@ -65,6 +70,7 @@ class _HomePageState extends State<HomePage> {
             default:
           }
           displayed = result.toString();
+          Totalized = true;
         } else {
           result = currentValue;
         }
@@ -73,6 +79,9 @@ class _HomePageState extends State<HomePage> {
         result = 0;
         currentValue = 0;
         keyFunctionPressed = '';
+        Totalized = false;
+      } else if (key != ButtomPressed.DEL) {
+        Totalized = false;
       }
       visorDisplay = displayed;
     });

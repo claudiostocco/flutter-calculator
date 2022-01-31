@@ -24,6 +24,6 @@ class ButtomPressed {
   static const String EQUALS = '=';
 
   static const FUNC_BUTTONS = [PLUS, MINUS, MULT, DIV, PERC, CLEAR, DEL, EQUALS];
-  static const CLEAR_BUTTONS = [PLUS, MINUS, MULT, DIV, CLEAR];
+  static const CLEAR_BUTTONS = [PLUS, MINUS, MULT, DIV, PERC, CLEAR];
   static const KEY_FUNCTION = [PLUS, MINUS, MULT, DIV, PERC, EQUALS];
 }

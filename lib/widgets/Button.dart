@@ -14,12 +14,13 @@ class Button extends StatelessWidget {
     Widget _button() {
       return button == ''
           ? const SizedBox(
-              width: 98,
+              //width: 98,
             )
           : ElevatedButton(
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all<Color>(Colors.blueGrey.shade900),
-                fixedSize: MaterialStateProperty.all<Size>(const Size(98, 98)),
+                //fixedSize: MaterialStateProperty.all<Size>(const Size(98, 98)),
+                fixedSize: MaterialStateProperty.all<Size>(const Size(0, 80)),
               ),
               onPressed: () => method(button),
               child: Text(

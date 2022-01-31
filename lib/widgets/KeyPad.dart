@@ -22,11 +22,11 @@ class KeyPad extends StatelessWidget {
       color: Colors.blueGrey[800],
       child: Column(
         children: [
-          RouButtons(line4, method),
-          RouButtons(line3, method),
-          RouButtons(line2, method),
-          RouButtons(line1, method),
-          RouButtons(line0, method),
+          RowButtons(line4, method),
+          RowButtons(line3, method),
+          RowButtons(line2, method),
+          RowButtons(line1, method),
+          RowButtons(line0, method),
         ],
       ),
     );
