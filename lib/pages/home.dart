@@ -1,6 +1,6 @@
 import 'package:calculator/consts/consts.dart';
-import 'package:calculator/widgets/KeyPad.dart';
-import 'package:calculator/widgets/Visor.dart';
+import 'package:calculator/widgets/keyPad.dart';
+import 'package:calculator/widgets/visor.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -101,8 +101,13 @@ class _HomePageState extends State<HomePage> {
       body: Center(
         child: Column(
           children: <Widget>[
-            Visor(visorDisplay),
-            KeyPad(_buttomPressed),
+            Expanded(
+              child: Visor(visorDisplay),
+            ),
+            Expanded(
+              flex: 4,
+              child: KeyPad(_buttomPressed),
+            ),
           ],
         ),
       ),

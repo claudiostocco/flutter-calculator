@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:calculator/consts/consts.dart';
-import 'package:calculator/widgets/RowButtons.dart';
+import 'package:calculator/widgets/rowButtons.dart';
 
 class KeyPad extends StatelessWidget {
   KeyPad(this.method, {Key? key}) : super(key: key);
@@ -17,8 +17,9 @@ class KeyPad extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(15),
-      width: 400,
+      margin: const EdgeInsets.fromLTRB(15, 15, 15, 25),
+      padding: const EdgeInsets.all(2),
+//      width: 400,
       color: Colors.blueGrey[800],
       child: Column(
         children: [

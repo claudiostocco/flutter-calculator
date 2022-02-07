@@ -1,4 +1,4 @@
-import 'package:calculator/widgets/Button.dart';
+import 'package:calculator/widgets/button.dart';
 import 'package:flutter/material.dart';
 
 class RowButtons extends StatelessWidget {
@@ -9,6 +9,14 @@ class RowButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(children: buttons.map<Widget>((button) => Expanded(child: Button(button, method),)).toList());
+    return Expanded(
+      child: Row(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: buttons
+              .map<Widget>((button) => Expanded(
+                    child: Button(button, method),
+                  ))
+              .toList()),
+    );
   }
 }

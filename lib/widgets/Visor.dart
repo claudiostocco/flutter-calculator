@@ -11,8 +11,8 @@ class Visor extends StatelessWidget {
         alignment: Alignment.centerRight,
         margin: const EdgeInsets.all(15),
         padding: const EdgeInsets.all(10),
-        width: 400,
-        height: 120,
+//        width: 400,
+//        height: 120,
         color: Colors.white,
         child: Text(
           contents,
